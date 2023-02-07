@@ -54,6 +54,38 @@ public class UserServiceImpl implements UserService {
 		return "Center Added Successfully";
 	}
 	public boolean removeCenter(DiagnosticCenter center) {
+		//deleting diagnostic center from database
+		try {
+			JDBCConnect jdbc=new JDBCConnect();
+			Connection con=jdbc.getConnection();
+			PreparedStatement ps=con.prepareStatement("select * from DiagnosticCenter where center_name=?");
+			ps.setString(1, center.getCenterName());
+			ResultSet rs=ps.executeQuery();
+			if(rs.next()) {
+				rs.close();
+				ps.close();
+				con.close();
+				throw new serviceException(center.getCenterName()+" already exists");
+			}
+			rs.close();
+			ps.close();
+			ps=con.prepareStatement("insert into DiagnosticCenter (center_name,center_no,address) values(?,?,?)",Statement.RETURN_GENERATED_KEYS);
+			ps.setString(1,center.getCenterName());
+			ps.setInt(2,center.getCenterNumber());
+			ps.setString(3,center.getAddress());
+			ps.executeUpdate();
+			rs=ps.getGeneratedKeys();
+			rs.next();
+			int id=rs.getInt(1);
+			center.setCenterId(id);
+			rs.close();
+			ps.close();
+			con.close();
+			}catch(Exception e) {
+				throw new serviceException(e.getMessage());
+			}
+		
+		
 		//userRepository.delete(center);
 		return true;
 	}
