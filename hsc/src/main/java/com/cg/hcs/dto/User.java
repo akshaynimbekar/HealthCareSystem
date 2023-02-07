@@ -15,7 +15,7 @@ public class User {
 	private String emailId;
 	private int age;
 	private String gender;
-	private HashMap<User> userList;
+	//private HashMap<User> userList;
 	
 	
 }
