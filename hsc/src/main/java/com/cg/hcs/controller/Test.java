@@ -8,6 +8,6 @@ public class Test {
 		@RequestMapping("/")
 		// @ResponseBody
 		public String hello() {
-			return "Hello! GitHub";
+			return "Hello!";
 		}
 }
