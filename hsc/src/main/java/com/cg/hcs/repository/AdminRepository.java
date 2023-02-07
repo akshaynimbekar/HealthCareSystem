@@ -5,6 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.cg.hcs.dto.User;
 @Repository
-public interface UserRepository extends CrudRepository{
+public interface AdminRepository extends CrudRepository{
 	
 }

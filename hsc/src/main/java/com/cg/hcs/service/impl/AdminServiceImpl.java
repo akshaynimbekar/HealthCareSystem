@@ -11,12 +11,12 @@ import com.cg.hcs.controller.Test;
 import com.cg.hcs.dto.DiagnosticCenter;
 import com.cg.hcs.dto.User;
 import com.cg.hcs.exceptions.serviceException;
-import com.cg.hcs.repository.UserRepository;
-import com.cg.hcs.service.UserService;
+import com.cg.hcs.repository.AdminRepository;
+import com.cg.hcs.service.AdminService;
 
-public class UserServiceImpl implements UserService {
+public class AdminServiceImpl implements AdminService {
 	@Autowired
-	UserRepository userRepository;
+	AdminRepository adminRepository;
 	
 	@Override
 	public String addCenter(DiagnosticCenter center) throws serviceException {
@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService {
 		try {
 		JDBCConnect jdbc=new JDBCConnect();
 		Connection con=jdbc.getConnection();
-		PreparedStatement ps=con.prepareStatement("select * from DiagnosticCenter where center_name=?");
+		PreparedStatement ps=con.prepareStatement("select * from diagnostic_center where center_name=?");
 		ps.setString(1, center.getCenterName());
 		ResultSet rs=ps.executeQuery();
 		if(rs.next()) {
@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
 		}
 		rs.close();
 		ps.close();
-		ps=con.prepareStatement("insert into DiagnosticCenter (center_name,center_no,address) values(?,?,?)",Statement.RETURN_GENERATED_KEYS);
+		ps=con.prepareStatement("insert into diagnostic_center (center_name,contact_no,address) values(?,?,?)",Statement.RETURN_GENERATED_KEYS);
 		ps.setString(1,center.getCenterName());
 		ps.setInt(2,center.getCenterNumber());
 		ps.setString(3,center.getAddress());
