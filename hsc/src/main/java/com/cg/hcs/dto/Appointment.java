@@ -1,26 +1,33 @@
 package com.cg.hcs.dto;
 
-import java.math.BigInteger;
 import java.time.LocalDateTime;
 
 public class Appointment {
 //Appointment CLASS
 	
 	private User user;
-	private BigInteger appointmentId;
+	private int appointmentId;
 	private Test test;
 	private  LocalDateTime datetime;
 	private boolean approved;
+	private DiagnosticCenter dc;
+	public DiagnosticCenter getDc() {
+		return dc;
+	}
+	public void setDc(DiagnosticCenter dc) {
+		this.dc = dc;
+	}
 	public Appointment() {
 		super();
 	}
-	public Appointment(User user, BigInteger appointmentId, Test test, LocalDateTime datetime, boolean approved) {
+	public Appointment(User user, int appointmentId, Test test, LocalDateTime datetime, boolean approved, DiagnosticCenter dc) {
 		super();
 		this.user = user;
 		this.appointmentId = appointmentId;
 		this.test = test;
 		this.datetime = datetime;
 		this.approved = approved;
+		this.dc=dc;
 	}
 	public User getUser() {
 		return user;
@@ -28,11 +35,11 @@ public class Appointment {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	public BigInteger getAppointmentId() {
+	public int getAppointmentId() {
 		return appointmentId;
 	}
-	public void setAppointmentId(BigInteger appointmentId) {
-		this.appointmentId = appointmentId;
+	public void setAppointmentId(int id) {
+		this.appointmentId = id;
 	}
 	public Test getTest() {
 		return test;
@@ -55,7 +62,8 @@ public class Appointment {
 	@Override
 	public String toString() {
 		return "Appointment [user=" + user + ", appointmentId=" + appointmentId + ", test=" + test + ", datetime="
-				+ datetime + ", approved=" + approved + "]";
+				+ datetime + ", approved=" + approved + ", dc=" + dc + "]";
 	}
+	
 	
 }
