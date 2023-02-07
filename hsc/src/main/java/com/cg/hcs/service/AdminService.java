@@ -10,7 +10,7 @@ import com.cg.hcs.dto.User;
 import com.cg.hcs.exceptions.serviceException;
 
 
-public interface UserService {
+public interface AdminService {
 	String addCenter(DiagnosticCenter center) throws serviceException;
 	boolean removeCenter(DiagnosticCenter center) throws serviceException;
 	String addTest(Test test) throws serviceException;
