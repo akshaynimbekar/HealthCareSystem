@@ -1,10 +1,8 @@
 package com.cg.hcs.repository;
 
 import org.springframework.stereotype.Repository;
-import org.springframework.data.repository.CrudRepository;
-
-import com.cg.hcs.dto.User;
+import org.springframework.data.jpa.repository.JpaRepository;
 @Repository
-public interface AdminRepository extends CrudRepository{
+public interface AdminRepository extends JpaRepository{
 	
 }

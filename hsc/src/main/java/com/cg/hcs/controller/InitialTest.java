@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cg.hcs.connect.JDBCConnect;
 
 @RestController
-public class Test {
+public class InitialTest {
 		@RequestMapping("/")
 		// @ResponseBody
 		public String hello() {
