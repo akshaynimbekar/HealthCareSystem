@@ -24,12 +24,14 @@ public class Appointment implements Serializable{
 	private Integer appointmentId;
 	
 	@NotBlank(message = "user_Id is required")
-	@Column(name = "user_Id")
+	@OneToOne
+	@JoinColumn(name = "customer_id")
 	private Customer user;
 	
 	
 	@NotBlank(message = "test_Id is required")
-	@Column(name = "test_id")
+	@OneToOne
+	@JoinColumn(name = "test_id")
 	private Test test;
 	
 	@NotBlank(message = "Date & Time is required")

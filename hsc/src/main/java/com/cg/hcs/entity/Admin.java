@@ -1,10 +1,12 @@
 package com.cg.hcs.entity;
 
 
-import jakarta.persistence.Entity;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
+
+import java.util.List;
+
 import jakarta.persistence.*;
 
 @Data
@@ -15,12 +17,13 @@ public class Admin {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "admin_id")
-	private String adminId;
+	private Long adminId;
 
 	// Mapping required
-//	@NotBlank(message = "Name is required")
-//	@Column(name = "STUDENT_NAME")
-//	private List<DiagnosticCenter> centerList;
+	@NotBlank(message = "Name is required")
+	@OneToMany
+	@JoinColumn(name = "center_id")
+	private List<DiagnosticCenter> centerList;
 
 	@NotBlank(message = "password is required")
 	@Column(name = "admin_password")

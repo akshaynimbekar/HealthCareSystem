@@ -1,7 +1,5 @@
 package com.cg.hcs.entity;
 
-
-
 import jakarta.persistence.Entity;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -15,7 +13,7 @@ public class Customer {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "customer_id")
-	private String customerId;
+	private Long customerId;
 	
 	//  Mapping required
 //	@NotBlank(message = "Name is required")

@@ -2,25 +2,48 @@ package com.cg.hcs.service.impl;
 
 import java.time.LocalDateTime;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.cg.hcs.entity.DiagnosticCenter;
 import com.cg.hcs.entity.Test;
+//import com.cg.hcs.entity.Test;
 import com.cg.hcs.entity.Customer;
-import com.cg.hcs.exceptions.serviceException;
+import com.cg.hcs.exceptions.ServiceException;
+import com.cg.hcs.repository.AppointmentRepository;
+import com.cg.hcs.repository.CustomerRepository;
+import com.cg.hcs.repository.DiagnosticCenterRepository;
+//import com.cg.hcs.repository.TestRepository;
 import com.cg.hcs.service.CustomerServices;
 
+@Service
 public class CustomerServiceImpl implements CustomerServices{
-
+	
+	@Autowired
+	AppointmentRepository appointmentRepository;
+	
+	@Autowired
+	CustomerRepository customerRepository;
+	
+	@Autowired
+	DiagnosticCenterRepository diagnosticCenterRespository;
+	
+//	@Autowired
+//	TestRepository testRepository;
+	
 	@Override
-	public String makeAppointment(Customer user, DiagnosticCenter center, Test test, LocalDateTime datetime)
-			throws serviceException {
+	public String makeAppointment(Customer user, DiagnosticCenter center,Test test, LocalDateTime datetime)
+			throws ServiceException {
 		// TODO Auto-generated method stub
-		return null;
+		return "Appointment Made";
 	}
 
 	@Override
-	public String register(Customer user) throws serviceException {
+	public String register(Customer user) throws ServiceException {
 		// TODO Auto-generated method stub
-		return null;
+		customerRepository.save(user);
+		return "User Registered";
 	}
-
 }
+
+

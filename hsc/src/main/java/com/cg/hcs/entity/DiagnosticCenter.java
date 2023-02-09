@@ -1,7 +1,6 @@
 package com.cg.hcs.entity;
 
 import java.io.Serializable;
-import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -31,9 +30,9 @@ public class DiagnosticCenter implements Serializable{
 	private int centerId;
 
 	
-	@NotBlank(message = "Tests are required")
-	@Column(name = "test_list")
-	private List<Test> listOfTests;
+//	@NotBlank(message = "Tests are required")
+//	@Column(name = "test_list")
+//	private List<Test> listOfTests;
 	
 	// ???????????? foreign key Required ?????????????
 //	@NotBlank(message = "Appointments required")
