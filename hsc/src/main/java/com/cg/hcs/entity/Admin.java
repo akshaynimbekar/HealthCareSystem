@@ -19,11 +19,11 @@ public class Admin {
 	@Column(name = "admin_id")
 	private Long adminId;
 
-	// Mapping required
-	@NotBlank(message = "Name is required")
-	@OneToMany
-	@JoinColumn(name = "center_id")
-	private List<DiagnosticCenter> centerList;
+//	// Mapping required
+//	@NotBlank(message = "Name is required")
+//	@OneToMany
+//	@JoinColumn(name = "center_id")
+//	private List<DiagnosticCenter> centerList;
 
 	@NotBlank(message = "password is required")
 	@Column(name = "admin_password")

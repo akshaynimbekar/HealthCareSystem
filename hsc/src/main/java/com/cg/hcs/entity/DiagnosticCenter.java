@@ -27,14 +27,14 @@ public class DiagnosticCenter implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "center_id")
-	private int centerId;
+	private Long centerId;
 
-	
+	// need mapping with test.java
 //	@NotBlank(message = "Tests are required")
 //	@Column(name = "test_list")
 //	private List<Test> listOfTests;
 	
-	// ???????????? foreign key Required ?????????????
+	// ???????????? foreign key Required ????????????? need mapping with appointment.java
 //	@NotBlank(message = "Appointments required")
 //	@Column(name = "appointment")
 //	private List<Appointment> appointmentList;

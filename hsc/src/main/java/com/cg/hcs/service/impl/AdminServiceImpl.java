@@ -1,6 +1,8 @@
 package com.cg.hcs.service.impl;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,8 +35,13 @@ public class AdminServiceImpl implements AdminService {
 		return "Center added successfully";
 	}
 
-	public boolean removeCenter(DiagnosticCenter center) {
-		diagnosticCenterRespository.delete(center);
+	@Override
+	public List<DiagnosticCenter> getAllCenters() {
+		return diagnosticCenterRespository.findAll();
+	}
+
+	public boolean removeCenter(Long center_id) {
+		diagnosticCenterRespository.deleteById(center_id);
 		return true;
 	}
 
@@ -43,14 +50,15 @@ public class AdminServiceImpl implements AdminService {
 		return "Test added successfully";
 	}
 
-	public boolean removeTest(Test test) throws ServiceException{
-		testRepository.delete(test);
+	public boolean removeTest(Integer test) throws ServiceException{
+		testRepository.deleteById(test);
 		return false;
 	}
 
 	public boolean approveAppointment() throws ServiceException {
 		return false;
 	}
+	
 
 }
 

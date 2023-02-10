@@ -16,8 +16,8 @@ public class Customer {
 	private Long customerId;
 	
 	//  Mapping required
-//	@NotBlank(message = "Name is required")
-//	@Column(name = "STUDENT_NAME")
+//	@NotBlank(message = "Center Name is required")
+//	@Column(name = "center_id")
 //	private List<DiagnosticCenter> centerList;
 	
 	@NotBlank(message = "password is required")
@@ -34,7 +34,7 @@ public class Customer {
 	@Column(name = "customer_email")
 	private String customerEmailId;
 	
-	//private HashMap<User> userList;
+
 	
 	
 }
