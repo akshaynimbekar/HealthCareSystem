@@ -27,7 +27,7 @@ public class CustomerController {
 	
 	//NOT working error 404
 	@SecurityRequirement(name = "Bearer Authentication")
-	@PreAuthorize(value = "hasRole('ROLE_CUSTOMER')")	
+	@PreAuthorize(value = "hasRole('ROLE_CUSTOMER')|| hasRole('ROLE_ADMIN')")	
 	@PostMapping("/customers/appointments")
 	public String makeAppointment(@RequestBody Customer user,@RequestBody DiagnosticCenter center,@RequestBody Test test,@RequestBody LocalDateTime datetime) {
 		try {
@@ -55,15 +55,5 @@ public class CustomerController {
 	}
 }
 
-//	$$-----3-----
-//	--> Register
-//	--> Login
-//
-//	$$-----4-----
-//	--> Create/Boom Appointment
-//	--> Check Appointment Status
-//
-//	$$-----5-----
-//	--> View Profile 
-//	--> Update Profile (change password, email)
+
 

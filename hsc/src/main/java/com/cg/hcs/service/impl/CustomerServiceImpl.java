@@ -13,6 +13,7 @@ import com.cg.hcs.exceptions.ServiceException;
 import com.cg.hcs.repository.AppointmentRepository;
 import com.cg.hcs.repository.CustomerRepository;
 import com.cg.hcs.repository.DiagnosticCenterRepository;
+import com.cg.hcs.repository.TestRepository;
 //import com.cg.hcs.repository.TestRepository;
 import com.cg.hcs.service.CustomerServices;
 
@@ -35,6 +36,13 @@ public class CustomerServiceImpl implements CustomerServices{
 	public String makeAppointment(Customer user, DiagnosticCenter center,Test test, LocalDateTime datetime)
 			throws ServiceException {
 		// TODO Auto-generated method stub
+//		customerRepository.save(user);
+//		diagnosticCenterRespository.save(center);
+//		testRepository.save(test);
+//		//appointmentRepository.save(datetime);
+		
+		
+		
 		return "Appointment Made";
 	}
 
