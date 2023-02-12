@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cg.hcs.entity.DiagnosticCenter;
-import com.cg.hcs.entity.Test;
+import com.cg.hcs.entity.MedicalTest;
 import com.cg.hcs.entity.User;
 //import com.cg.hcs.entity.Test;
 import com.cg.hcs.exceptions.ServiceException;
@@ -32,7 +32,7 @@ public class CustomerServiceImpl implements CustomerServices{
 //	TestRepository testRepository;
 	
 	@Override
-	public String makeAppointment(User Roles, DiagnosticCenter center,Test test, LocalDateTime datetime)
+	public String makeAppointment(User Roles, DiagnosticCenter center,MedicalTest medicalTest, LocalDateTime datetime)
 			throws ServiceException {
 		// TODO Auto-generated method stub
 		return "Appointment Made";

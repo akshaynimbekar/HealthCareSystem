@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.hcs.entity.DiagnosticCenter;
-import com.cg.hcs.entity.Test;
+import com.cg.hcs.entity.MedicalTest;
 //import com.cg.hcs.entity.Test;
 import com.cg.hcs.exceptions.ServiceException;
 import com.cg.hcs.service.AdminService;
@@ -73,9 +73,9 @@ public class AdminController {
 	@PreAuthorize(value = "hasRole('ROLE_ADMIN')|| hasRole('ROLE_CUSTOMER')")	
 	@Validated
 	@PostMapping("/test")
-	public String addTest(@RequestBody @Valid Test test) {
+	public String addTest(@RequestBody @Valid MedicalTest medicalTest) {
 		try {
-			adminService.addTest(test);
+			adminService.addTest(medicalTest);
 		} catch (ServiceException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -119,7 +119,7 @@ public class AdminController {
 	@PreAuthorize(value = "hasRole('ROLE_ADMIN')")	
 	@Validated
 	@PutMapping("/test")
-	public Test updateTest(@RequestBody Test updatedTest) {
+	public MedicalTest updateTest(@RequestBody MedicalTest updatedTest) {
 		try {
 			return adminService.updateTest(updatedTest);
 		} catch (ServiceException e) {

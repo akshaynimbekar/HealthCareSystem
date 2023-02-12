@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cg.hcs.entity.DiagnosticCenter;
-import com.cg.hcs.entity.Test;
+import com.cg.hcs.entity.MedicalTest;
 import com.cg.hcs.exceptions.ServiceException;
 import com.cg.hcs.repository.DiagnosticCenterRepository;
 import com.cg.hcs.repository.TestRepository;
@@ -45,8 +45,8 @@ public class AdminServiceImpl implements AdminService {
 		return true;
 	}
 
-	public String addTest(Test test) {
-		testRepository.save(test);
+	public String addTest(MedicalTest medicalTest) {
+		testRepository.save(medicalTest);
 		return "Test added successfully";
 	}
 
@@ -67,7 +67,7 @@ public class AdminServiceImpl implements AdminService {
 		}
 		
 		@Override	
-		public Test updateTest(Test updatedTest){
+		public MedicalTest updateTest(MedicalTest updatedTest){
 			testRepository.save(updatedTest);
 			//AdminRepository.save(updatedCenter);
 			return updatedTest;

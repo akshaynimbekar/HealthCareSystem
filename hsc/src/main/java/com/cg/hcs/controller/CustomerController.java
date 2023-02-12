@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.hcs.entity.DiagnosticCenter;
-import com.cg.hcs.entity.Test;
+import com.cg.hcs.entity.MedicalTest;
 import com.cg.hcs.entity.User;
 //import com.cg.hcs.entity.Test;
 import com.cg.hcs.exceptions.ServiceException;
@@ -31,9 +31,9 @@ public class CustomerController {
 	@SecurityRequirement(name = "Bearer Authentication")
 	@PreAuthorize(value = "hasRole('ROLE_CUSTOMER')")	
 	@PostMapping("/customers/make_appointments")
-	public String makeAppointment(@RequestBody User Roles,@RequestBody DiagnosticCenter center,@RequestBody Test test,@RequestBody LocalDateTime datetime) {
+	public String makeAppointment(@RequestBody User Roles,@RequestBody DiagnosticCenter center,@RequestBody MedicalTest medicalTest,@RequestBody LocalDateTime datetime) {
 		try {
-			return customerServices.makeAppointment(Roles, center,test, datetime);
+			return customerServices.makeAppointment(Roles, center,medicalTest, datetime);
 		} catch (ServiceException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

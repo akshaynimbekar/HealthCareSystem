@@ -34,7 +34,7 @@ public class Appointment implements Serializable{
 	@NotBlank(message = "test_Id is required")
 	@OneToOne
 	@JoinColumn(name = "test_id")
-	private Test test;
+	private MedicalTest medicalTest;
 	
 	@NotBlank(message = "Date & Time is required")
 	@Column(name = "date_time")

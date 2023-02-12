@@ -12,7 +12,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "test_info")
-public class Test {
+public class MedicalTest {
 //TEST CLASS
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
