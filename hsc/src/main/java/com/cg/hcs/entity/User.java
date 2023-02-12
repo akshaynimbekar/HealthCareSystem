@@ -12,7 +12,7 @@ import static jakarta.persistence.GenerationType.SEQUENCE;
 @RequiredArgsConstructor
 @EqualsAndHashCode
 @Entity(name = "Users")
-@Table(name = "users", uniqueConstraints = @UniqueConstraint(name = "student_username_unique", columnNames = "username"))
+@Table(name = "users", uniqueConstraints = @UniqueConstraint(name = "username_unique", columnNames = "username"))
 public class User {
     @Id
     @SequenceGenerator(

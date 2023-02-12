@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cg.hcs.entity.Admin;
-import com.cg.hcs.entity.Customer;
 import com.cg.hcs.entity.DiagnosticCenter;
 import com.cg.hcs.entity.Test;
 //import com.cg.hcs.entity.Test;
@@ -33,10 +31,9 @@ public class AdminController {
 	@Autowired
 	AdminService adminService;
 	
-	
-	//adding center by admin
+	//post mapping for Adding Center
 	@SecurityRequirement(name = "Bearer Authentication")
-	@PreAuthorize(value = "hasRole('ROLE_ADMIN')")	
+	@PreAuthorize(value = "hasRole('ROLE_ADMIN')|| hasRole('ROLE_CUSTOMER')")	
 	@Validated
 	@PostMapping("/center")
 	public String addCenter(@RequestBody @Valid DiagnosticCenter center) {
@@ -48,7 +45,7 @@ public class AdminController {
 		return null;
 	}
 
-	// to cross check if center is get inserted in DB 
+	// To Show All available Centers 
 	@SecurityRequirement(name = "Bearer Authentication")
 	@PreAuthorize(value = "hasRole('ROLE_ADMIN')|| hasRole('ROLE_CUSTOMER')")	
 	@GetMapping("/center")
@@ -56,7 +53,7 @@ public class AdminController {
 		return adminService.getAllCenters();
 	}
 	
-	//delete center by center_id
+	//delete center by center_id 
 	@SecurityRequirement(name = "Bearer Authentication")
 	@PreAuthorize(value = "hasRole('ROLE_ADMIN')|| hasRole('ROLE_CUSTOMER')")	
 	@DeleteMapping("/center/{center_id}")
@@ -71,10 +68,9 @@ public class AdminController {
 
 	}
 	
-	// code to ADD Test
-	// admin added the test
+	// ADDING Test 
 	@SecurityRequirement(name = "Bearer Authentication")
-	@PreAuthorize(value = "hasRole('ROLE_ADMIN')")	
+	@PreAuthorize(value = "hasRole('ROLE_ADMIN')|| hasRole('ROLE_CUSTOMER')")	
 	@Validated
 	@PostMapping("/test")
 	public String addTest(@RequestBody @Valid Test test) {
@@ -88,9 +84,9 @@ public class AdminController {
 
 	}
 	
-	// deleting test by admin
+	//Show test by providing Id
 	@SecurityRequirement(name = "Bearer Authentication")
-	@PreAuthorize(value = "hasRole('ROLE_ADMIN')")	
+	@PreAuthorize(value = "hasRole('ROLE_ADMIN')|| hasRole('ROLE_CUSTOMER')")	
 	@DeleteMapping("/test/{test_id}")
 	public boolean removeTest(@PathVariable("test_id") Integer test_id) {
 		try {
@@ -102,22 +98,7 @@ public class AdminController {
 		return true;
 	}
 	
-	@SecurityRequirement(name = "Bearer Authentication")
-	@PreAuthorize(value = "hasRole('ROLE_ADMIN')")	
-	@Validated
-	@PostMapping("/appointment")
-	public boolean approveAppointment() {
-		try {
-			return adminService.approveAppointment();
-		} catch (ServiceException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return false;
-
-	}
-	
-	//update the center by admin
+	//update the center by ADMIN
 	@SecurityRequirement(name = "Bearer Authentication")
 	@PreAuthorize(value = "hasRole('ROLE_ADMIN')")	
 	@Validated
@@ -133,7 +114,7 @@ public class AdminController {
 		
 	}
 	
-	//update the test by admin
+	//update the test by ADMIN
 	@SecurityRequirement(name = "Bearer Authentication")
 	@PreAuthorize(value = "hasRole('ROLE_ADMIN')")	
 	@Validated
@@ -147,5 +128,21 @@ public class AdminController {
 		}
 		return updatedTest;
 		
+	}
+	
+	//Need Work--------------
+	@SecurityRequirement(name = "Bearer Authentication")
+	@PreAuthorize(value = "hasRole('ROLE_ADMIN')|| hasRole('ROLE_CUSTOMER')")	
+	@Validated
+	@PostMapping("/appointment")
+	public boolean approveAppointment() {
+		try {
+			return adminService.approveAppointment();
+		} catch (ServiceException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+
 	}
 }

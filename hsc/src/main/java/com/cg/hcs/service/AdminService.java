@@ -1,10 +1,6 @@
 package com.cg.hcs.service;
-
-
 import java.util.List;
 
-import com.cg.hcs.entity.Admin;
-import com.cg.hcs.entity.Customer;
 import com.cg.hcs.entity.DiagnosticCenter;
 import com.cg.hcs.entity.Test;
 import com.cg.hcs.exceptions.ServiceException;
@@ -16,10 +12,8 @@ public interface AdminService {
 	String addTest(Test test) throws ServiceException;
 	boolean removeTest(Integer test) throws ServiceException;
 	boolean approveAppointment() throws ServiceException;
-	//String updateCenter(DiagnosticCenter center) throws ServiceException;
 	DiagnosticCenter updateCenter(DiagnosticCenter updatedCenter) throws ServiceException;
 	Test updateTest(Test updatedTest) throws ServiceException;
 	List<DiagnosticCenter> getAllCenters();
-	
 	
 }

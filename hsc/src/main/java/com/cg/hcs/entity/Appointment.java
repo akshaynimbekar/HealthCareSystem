@@ -28,7 +28,7 @@ public class Appointment implements Serializable{
 	@NotBlank(message = "user_Id is required")
 	@OneToOne
 	@JoinColumn(name = "customer_id")
-	private Customer user;
+	private User Roles;
 	
 	
 	@NotBlank(message = "test_Id is required")

@@ -6,12 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cg.hcs.entity.Admin;
-import com.cg.hcs.entity.Customer;
 import com.cg.hcs.entity.DiagnosticCenter;
 import com.cg.hcs.entity.Test;
 import com.cg.hcs.exceptions.ServiceException;
-import com.cg.hcs.repository.AdminRepository;
 import com.cg.hcs.repository.DiagnosticCenterRepository;
 import com.cg.hcs.repository.TestRepository;
 import com.cg.hcs.service.AdminService;
@@ -61,23 +58,20 @@ public class AdminServiceImpl implements AdminService {
 	public boolean approveAppointment() throws ServiceException {
 		return false;
 	}
-	
 	//update the center by Admin
-	@Override	
-	public DiagnosticCenter updateCenter(DiagnosticCenter updatedCenter){
-		diagnosticCenterRespository.save(updatedCenter);
-		//AdminRepository.save(updatedCenter);
-		return updatedCenter;
-	}
-	
-	@Override	
-	public Test updateTest(Test updatedTest){
-		testRepository.save(updatedTest);
-		//AdminRepository.save(updatedCenter);
-		return updatedTest;
-	}
-	
-	
+		@Override	
+		public DiagnosticCenter updateCenter(DiagnosticCenter updatedCenter){
+			diagnosticCenterRespository.save(updatedCenter);
+			//AdminRepository.save(updatedCenter);
+			return updatedCenter;
+		}
+		
+		@Override	
+		public Test updateTest(Test updatedTest){
+			testRepository.save(updatedTest);
+			//AdminRepository.save(updatedCenter);
+			return updatedTest;
+		}
 
 }
 
