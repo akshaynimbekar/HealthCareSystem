@@ -30,7 +30,7 @@ public class AdminController {
 	@Autowired
 	AdminService adminService;
 	
-	//post mapping is NOT working
+	//post mapping for Adding Center
 	@SecurityRequirement(name = "Bearer Authentication")
 	@PreAuthorize(value = "hasRole('ROLE_ADMIN')|| hasRole('ROLE_CUSTOMER')")	
 	@Validated
@@ -44,7 +44,7 @@ public class AdminController {
 		return null;
 	}
 
-	// to cross check if center is get inserted in DB 
+	// Show All available Centers 
 	@SecurityRequirement(name = "Bearer Authentication")
 	@PreAuthorize(value = "hasRole('ROLE_ADMIN')|| hasRole('ROLE_CUSTOMER')")	
 	@GetMapping("/center")
@@ -52,7 +52,7 @@ public class AdminController {
 		return adminService.getAllCenters();
 	}
 	
-	//delete center by center_id
+	//delete center by center_id CHANGE IT TO BY PROVIDEING NAME
 	@SecurityRequirement(name = "Bearer Authentication")
 	@PreAuthorize(value = "hasRole('ROLE_ADMIN')|| hasRole('ROLE_CUSTOMER')")	
 	@DeleteMapping("/center/{center_id}")
@@ -67,8 +67,7 @@ public class AdminController {
 
 	}
 	
-	// code to ADD Test
-	// NOT WORKING
+	// ADD Test 
 	@SecurityRequirement(name = "Bearer Authentication")
 	@PreAuthorize(value = "hasRole('ROLE_ADMIN')|| hasRole('ROLE_CUSTOMER')")	
 	@Validated
@@ -84,7 +83,7 @@ public class AdminController {
 
 	}
 	
-	// NOT WORKING
+	//Show test by providing Id
 	@SecurityRequirement(name = "Bearer Authentication")
 	@PreAuthorize(value = "hasRole('ROLE_ADMIN')|| hasRole('ROLE_CUSTOMER')")	
 	@DeleteMapping("/test/{test_id}")
@@ -98,6 +97,7 @@ public class AdminController {
 		return true;
 	}
 	
+	//Need Work
 	@SecurityRequirement(name = "Bearer Authentication")
 	@PreAuthorize(value = "hasRole('ROLE_ADMIN')|| hasRole('ROLE_CUSTOMER')")	
 	@Validated

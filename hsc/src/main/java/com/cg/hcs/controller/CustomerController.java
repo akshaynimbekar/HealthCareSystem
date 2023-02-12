@@ -1,17 +1,19 @@
 package com.cg.hcs.controller;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cg.hcs.entity.Customer;
 import com.cg.hcs.entity.DiagnosticCenter;
 import com.cg.hcs.entity.Test;
+import com.cg.hcs.entity.User;
 //import com.cg.hcs.entity.Test;
 import com.cg.hcs.exceptions.ServiceException;
 import com.cg.hcs.service.CustomerServices;
@@ -28,10 +30,10 @@ public class CustomerController {
 	//NOT working error 404
 	@SecurityRequirement(name = "Bearer Authentication")
 	@PreAuthorize(value = "hasRole('ROLE_CUSTOMER')")	
-	@PostMapping("/customers/appointments")
-	public String makeAppointment(@RequestBody Customer user,@RequestBody DiagnosticCenter center,@RequestBody Test test,@RequestBody LocalDateTime datetime) {
+	@PostMapping("/customers/make_appointments")
+	public String makeAppointment(@RequestBody User Roles,@RequestBody DiagnosticCenter center,@RequestBody Test test,@RequestBody LocalDateTime datetime) {
 		try {
-			return customerServices.makeAppointment(user, center,test, datetime);
+			return customerServices.makeAppointment(Roles, center,test, datetime);
 		} catch (ServiceException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -39,20 +41,24 @@ public class CustomerController {
 		return null;
 	}
 	
-	//NOT working error 404
-	@SecurityRequirement(name = "Bearer Authentication")
-	@PreAuthorize(value = "hasRole('ROLE_CUSTOMER')")
-	@PostMapping("/customer")
-	public String register(@RequestBody Customer user){
-		try {
-			return customerServices.register(user);
-		} catch (ServiceException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
-		
-	}
+	//Adding customer
+//	@SecurityRequirement(name = "Bearer Authentication")
+//	@PreAuthorize(value = "hasRole('ROLE_CUSTOMER')")
+//	@PostMapping("/customer")
+//	public String register(@RequestBody Customer user){
+//		try {
+//			return customerServices.register(user);
+//		} catch (ServiceException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		return null;
+//		
+//	}
+//	@GetMapping("/center")
+//	public List<DiagnosticCenter> getAllCenters(){		
+//		return adminService.getAllCenters();
+//	}
 }
 
 //	$$-----3-----
