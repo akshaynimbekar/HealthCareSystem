@@ -11,7 +11,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "test_info")
+@Table(name = "medicalTest")
 public class MedicalTest {
 //TEST CLASS
 	@Id

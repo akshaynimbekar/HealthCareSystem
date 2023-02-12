@@ -34,7 +34,7 @@ public class DiagnosticCenter implements Serializable{
 //	@Column(name = "test_list")
 //	private List<Test> listOfTests;
 	
-	// ???????????? foreign key Required ????????????? need mapping with appointment.java
+	
 //	@NotBlank(message = "Appointments required")
 //	@Column(name = "appointment")
 //	private List<Appointment> appointmentList;

@@ -1,19 +1,12 @@
 package com.cg.hcs.service.impl;
 
-import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cg.hcs.entity.DiagnosticCenter;
-import com.cg.hcs.entity.MedicalTest;
-import com.cg.hcs.entity.User;
-//import com.cg.hcs.entity.Test;
+import com.cg.hcs.entity.Appointment;
 import com.cg.hcs.exceptions.ServiceException;
 import com.cg.hcs.repository.AppointmentRepository;
-import com.cg.hcs.repository.CustomerRepository;
-import com.cg.hcs.repository.DiagnosticCenterRepository;
-//import com.cg.hcs.repository.TestRepository;
 import com.cg.hcs.service.CustomerServices;
 
 @Service
@@ -22,19 +15,19 @@ public class CustomerServiceImpl implements CustomerServices{
 	@Autowired
 	AppointmentRepository appointmentRepository;
 	
-	@Autowired
-	CustomerRepository customerRepository;
-	
-	@Autowired
-	DiagnosticCenterRepository diagnosticCenterRespository;
-	
+//	@Autowired
+//	CustomerRepository customerRepository;
+//	
+//	@Autowired
+//	DiagnosticCenterRepository diagnosticCenterRespository;
+//	
 //	@Autowired
 //	TestRepository testRepository;
 	
+
 	@Override
-	public String makeAppointment(User Roles, DiagnosticCenter center,MedicalTest medicalTest, LocalDateTime datetime)
-			throws ServiceException {
-		// TODO Auto-generated method stub
+	public String makeAppointment(Appointment appointment) throws ServiceException {
+		appointmentRepository.save(appointment);
 		return "Appointment Made";
 	}
 

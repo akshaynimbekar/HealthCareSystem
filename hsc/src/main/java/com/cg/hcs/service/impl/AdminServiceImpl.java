@@ -56,16 +56,16 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	public boolean approveAppointment() throws ServiceException {
-		return false;
+		return true;
 	}
-	//update the center by Admin
+	//update the center by ADMIN
 		@Override	
 		public DiagnosticCenter updateCenter(DiagnosticCenter updatedCenter){
 			diagnosticCenterRespository.save(updatedCenter);
 			//AdminRepository.save(updatedCenter);
 			return updatedCenter;
 		}
-		
+		//update the MedicalTest by ADMIN
 		@Override	
 		public MedicalTest updateTest(MedicalTest updatedTest){
 			testRepository.save(updatedTest);
