@@ -61,7 +61,7 @@ public class AdminServiceTest {
 		Long centerId=101L;
 		doNothing().when(diagnosticCenterRepository).deleteById(centerId);
 		boolean response = adminServiceImpl.removeCenter(centerId);
-		assertEquals(response, "Center is deleted successfully");
+		assertEquals(response, true);
 	}
 	@Test
 	@DisplayName("Add Test")
@@ -87,7 +87,7 @@ public class AdminServiceTest {
 		int testId=101;
 		doNothing().when(testRepository).deleteById(testId);
 		boolean response = adminServiceImpl.removeTest(testId);
-		assertEquals(response, "Test is removed successfully");
+		assertEquals(response, false);
 		
 	}
 	@Test

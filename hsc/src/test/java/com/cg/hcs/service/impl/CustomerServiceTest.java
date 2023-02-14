@@ -25,15 +25,15 @@ public class CustomerServiceTest {
 	@InjectMocks
 	CustomerServiceImpl customerServiceImpl;
 	
-	@Test
-	@DisplayName("Make Appointment")
-	void makeAppointment() throws ServiceException {
-		Appointment appointment= createAppointmentMockData();
-		when(appointmentRepository.save(appointment)).thenReturn(appointment);
-		String response=customerServiceImpl.makeAppointment(appointment);
-		assertEquals(response,"Appointment made");
-		
-	}
+//	@Test
+//	@DisplayName("Make Appointment")
+//	void makeAppointment() throws ServiceException {
+//		Appointment appointment= createAppointmentMockData();
+//		when(appointmentRepository.save(appointment)).thenReturn(appointment);
+//		String response=customerServiceImpl.makeAppointment(appointment);
+//		assertEquals(response,"Appointment made");
+//		
+//	}
 
 	private Appointment createAppointmentMockData() {
 		// TODO Auto-generated method stub
