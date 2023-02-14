@@ -6,11 +6,7 @@ import lombok.*;
 import static jakarta.persistence.GenerationType.SEQUENCE;
 
 
-@Getter
-@Setter
-@ToString
-@RequiredArgsConstructor
-@EqualsAndHashCode
+@Data
 @Entity(name = "Users")
 @Table(name = "users", uniqueConstraints = @UniqueConstraint(name = "username_unique", columnNames = "username"))
 public class User {

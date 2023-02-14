@@ -9,5 +9,5 @@ import com.cg.hcs.entity.User;
 
 @Repository
 public interface UsersRepository extends JpaRepository<User, Long> {
-    Optional<User> findByUsername(String username);
+   Optional<User> findByUsername(String username);
 }

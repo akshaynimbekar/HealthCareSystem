@@ -33,10 +33,10 @@ public class AdminController {
 	
 	//post mapping for Adding Center
 	@SecurityRequirement(name = "Bearer Authentication")
-	@PreAuthorize(value = "hasRole('ROLE_ADMIN')|| hasRole('ROLE_CUSTOMER')")	
+	@PreAuthorize(value = "hasRole('ROLE_ADMIN')")	
 	@Validated
 	@PostMapping("/center")
-	public String addCenter(@RequestBody @Valid DiagnosticCenter center) {
+	public String addCenter(@RequestBody DiagnosticCenter center) {
 		try {
 			return adminService.addCenter(center);
 		} catch (ServiceException e) {
@@ -47,7 +47,7 @@ public class AdminController {
 
 	// To Show All available Centers 
 	@SecurityRequirement(name = "Bearer Authentication")
-	@PreAuthorize(value = "hasRole('ROLE_ADMIN')|| hasRole('ROLE_CUSTOMER')")	
+	@PreAuthorize(value = "hasRole('ROLE_ADMIN')")	
 	@GetMapping("/center")
 	public List<DiagnosticCenter> getAllCenters(){		
 		return adminService.getAllCenters();
@@ -55,7 +55,7 @@ public class AdminController {
 	
 	//delete center by center_id 
 	@SecurityRequirement(name = "Bearer Authentication")
-	@PreAuthorize(value = "hasRole('ROLE_ADMIN')|| hasRole('ROLE_CUSTOMER')")	
+	@PreAuthorize(value = "hasRole('ROLE_ADMIN')")	
 	@DeleteMapping("/center/{center_id}")
 	public boolean removeCenter(@PathVariable("center_id") Long center_id) {
 		try {
@@ -70,7 +70,7 @@ public class AdminController {
 	
 	// ADDING Test 
 	@SecurityRequirement(name = "Bearer Authentication")
-	@PreAuthorize(value = "hasRole('ROLE_ADMIN')|| hasRole('ROLE_CUSTOMER')")	
+	@PreAuthorize(value = "hasRole('ROLE_ADMIN')")	
 	@Validated
 	@PostMapping("/test")
 	public String addTest(@RequestBody @Valid MedicalTest medicalTest) {
@@ -86,7 +86,7 @@ public class AdminController {
 	
 	//Show test by providing Id
 	@SecurityRequirement(name = "Bearer Authentication")
-	@PreAuthorize(value = "hasRole('ROLE_ADMIN')|| hasRole('ROLE_CUSTOMER')")	
+	@PreAuthorize(value = "hasRole('ROLE_ADMIN')")	
 	@DeleteMapping("/test/{test_id}")
 	public boolean removeTest(@PathVariable("test_id") Integer test_id) {
 		try {
@@ -132,7 +132,7 @@ public class AdminController {
 	
 	//Need Work--------------
 	@SecurityRequirement(name = "Bearer Authentication")
-	@PreAuthorize(value = "hasRole('ROLE_ADMIN')|| hasRole('ROLE_CUSTOMER')")	
+	@PreAuthorize(value = "hasRole('ROLE_ADMIN')")	
 	@Validated
 	@PostMapping("/appointment")
 	public boolean approveAppointment() {

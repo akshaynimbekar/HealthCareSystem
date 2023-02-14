@@ -28,7 +28,7 @@ public class UserServiceTest {
 		User user=createUserMockData();
 		when(usersRepository.save(user)).thenReturn(user);
 		User response=userServiceImpl.addUser(user);
-		assertEquals(response, "Student added successfully");
+		assertEquals(response, "User added successfully");
 }
 
 	private User createUserMockData() {

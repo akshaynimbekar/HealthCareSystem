@@ -1,14 +1,18 @@
 package com.cg.hcs.controller;
 
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.hcs.entity.Appointment;
+import com.cg.hcs.entity.DiagnosticCenter;
+import com.cg.hcs.entity.MedicalTest;
 import com.cg.hcs.exceptions.ServiceException;
 import com.cg.hcs.service.CustomerServices;
 
@@ -20,10 +24,27 @@ public class CustomerController {
 
 	@Autowired
 	CustomerServices customerServices;
-	
-	//NOT working error 403
+
+	// To Show All available Centers
 	@SecurityRequirement(name = "Bearer Authentication")
-	@PreAuthorize(value = "hasRole('ROLE_CUSTOMER')")	
+	@PreAuthorize(value = "hasRole('ROLE_CUSTOMER')")
+	@GetMapping("/availableCenters")
+	public List<DiagnosticCenter> getAllCenters() {
+		return customerServices.getAllCenters();
+	}
+	
+	// To Show All available All Medical Tests
+		@SecurityRequirement(name = "Bearer Authentication")
+		@PreAuthorize(value = "hasRole('ROLE_CUSTOMER')")
+		@GetMapping("/availableMedicalTests")
+		public List<MedicalTest> getAllMedicalTest() {
+			return customerServices.getAllTest();
+		}
+	
+	
+	// NOT working error 403
+	@SecurityRequirement(name = "Bearer Authentication")
+	@PreAuthorize(value = "hasRole('ROLE_CUSTOMER')")
 	@PostMapping("/customers/make_appointments")
 	public String makeAppointment(@RequestBody Appointment appointment) {
 		try {
@@ -34,25 +55,5 @@ public class CustomerController {
 		}
 		return null;
 	}
-	
-	//Adding customer
-//	@SecurityRequirement(name = "Bearer Authentication")
-//	@PreAuthorize(value = "hasRole('ROLE_CUSTOMER')")
-//	@PostMapping("/customer")
-//	public String register(@RequestBody Customer user){
-//		try {
-//			return customerServices.register(user);
-//		} catch (ServiceException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		return null;
-//		
-//	}
-//	@GetMapping("/center")
-//	public List<DiagnosticCenter> getAllCenters(){		
-//		return adminService.getAllCenters();
-//	}
+
 }
-
-

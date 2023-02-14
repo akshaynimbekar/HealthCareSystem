@@ -29,14 +29,4 @@ public class DiagnosticCenter implements Serializable{
 	@Column(name = "center_id")
 	private Long centerId;
 
-	// need mapping with test.java
-//	@NotBlank(message = "Tests are required")
-//	@Column(name = "test_list")
-//	private List<Test> listOfTests;
-	
-	
-//	@NotBlank(message = "Appointments required")
-//	@Column(name = "appointment")
-//	private List<Appointment> appointmentList;
-//	
 }
