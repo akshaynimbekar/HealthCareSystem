@@ -130,7 +130,7 @@ public class AdminController {
 		
 	}
 	
-	//Need Work--------------
+	//Approve Appointment
 	@SecurityRequirement(name = "Bearer Authentication")
 	@PreAuthorize(value = "hasRole('ROLE_ADMIN')")	
 	@Validated

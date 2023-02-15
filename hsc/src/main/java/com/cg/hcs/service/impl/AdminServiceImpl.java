@@ -1,6 +1,5 @@
 package com.cg.hcs.service.impl;
 
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,18 +13,17 @@ import com.cg.hcs.repository.TestRepository;
 import com.cg.hcs.service.AdminService;
 import io.swagger.v3.oas.annotations.servers.Server;
 
-
-@Service 
+@Service
 public class AdminServiceImpl implements AdminService {
 //	@Autowired
 //	AdminRepository adminRepository;
-	
+
 	@Autowired
 	DiagnosticCenterRepository diagnosticCenterRespository;
-	
+
 	@Autowired
 	TestRepository testRepository;
-	
+
 //	@Autowired
 //	AppointmentRepository appointmentRepository;
 
@@ -50,7 +48,7 @@ public class AdminServiceImpl implements AdminService {
 		return "Test added successfully";
 	}
 
-	public boolean removeTest(Integer test) throws ServiceException{
+	public boolean removeTest(Integer test) throws ServiceException {
 		testRepository.deleteById(test);
 		return false;
 	}
@@ -58,22 +56,21 @@ public class AdminServiceImpl implements AdminService {
 	public boolean approveAppointment() throws ServiceException {
 		return true;
 	}
-	//update the center by ADMIN
-		@Override	
-		public DiagnosticCenter updateCenter(DiagnosticCenter updatedCenter){
-			diagnosticCenterRespository.save(updatedCenter);
-			//AdminRepository.save(updatedCenter);
-			return updatedCenter;
-		}
-		//update the MedicalTest by ADMIN
-		@Override	
-		public MedicalTest updateTest(MedicalTest updatedTest){
-			testRepository.save(updatedTest);
-			//AdminRepository.save(updatedCenter);
-			return updatedTest;
-		}
+
+	// update the center by ADMIN
+	@Override
+	public DiagnosticCenter updateCenter(DiagnosticCenter updatedCenter) {
+		diagnosticCenterRespository.save(updatedCenter);
+		// AdminRepository.save(updatedCenter);
+		return updatedCenter;
+	}
+
+	// update the MedicalTest by ADMIN
+	@Override
+	public MedicalTest updateTest(MedicalTest updatedTest) {
+		testRepository.save(updatedTest);
+		// AdminRepository.save(updatedCenter);
+		return updatedTest;
+	}
 
 }
-
-
-

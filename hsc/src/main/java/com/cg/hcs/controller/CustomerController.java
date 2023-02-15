@@ -42,7 +42,7 @@ public class CustomerController {
 		}
 	
 	
-	// NOT working error 403
+	// make Appointment
 	@SecurityRequirement(name = "Bearer Authentication")
 	@PreAuthorize(value = "hasRole('ROLE_CUSTOMER')")
 	@PostMapping("/customers/make_appointments")

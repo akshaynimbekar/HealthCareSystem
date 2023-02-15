@@ -35,16 +35,16 @@ public class CustomerServiceTest {
 //		
 //	}
 
-	private Appointment createAppointmentMockData() {
-		// TODO Auto-generated method stub
-		Appointment appointment=new Appointment();
-		appointment.setAppointmentId(101);
-		appointment.setApproved(false);
-		appointment.setCenterId(12);
-		appointment.setDatetime(null);
-		appointment.setMedicalTest(null);
-		appointment.setRoles(null);
-		return null;
-	}
+//	private Appointment createAppointmentMockData() {
+//		// TODO Auto-generated method stub
+//		Appointment appointment=new Appointment();
+//		appointment.setAppointmentId(101);
+//		appointment.setApproved(false);
+//		appointment.setCenterId(12);
+//		appointment.setDatetime(null);
+//		appointment.setMedicalTest(null);
+//		appointment.setRoles(null);
+//		return null;
+//	}
 
 }

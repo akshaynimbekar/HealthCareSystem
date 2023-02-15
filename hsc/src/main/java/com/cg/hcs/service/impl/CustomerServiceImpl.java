@@ -47,14 +47,6 @@ public class CustomerServiceImpl implements CustomerServices{
 		return "Appointment Made";
 	}
 
-	
-
-//	@Override
-//	public String register(Customer user) throws ServiceException {
-//		// TODO Auto-generated method stub
-//		customerRepository.save(user);
-//		return "User Registered";
-//	}
 }
 
 

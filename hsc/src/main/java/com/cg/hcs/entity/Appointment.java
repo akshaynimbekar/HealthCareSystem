@@ -25,20 +25,24 @@ public class Appointment implements Serializable{
 	@Column(name = "appointment_id")
 	private Integer appointmentId;
 	
-	@NotBlank(message = "user_Id is required")
-	@OneToOne
-	@JoinColumn(name = "customer_id")
-	//@Column(name = "customers_id")
-	private User Roles;
+	//@NotBlank(message = "center Id ")
+	@Column(name = "center_id")
+	private Integer centers_Id;
+	
+	//@NotBlank(message = "user_Id is required")
+//	@OneToOne
+//	@JoinColumn(name = "customer_id")
+	@Column(name = "customers_id")
+	private Long customers_id;
 	
 	
-	@NotBlank(message = "test_Id is required")
-	@OneToOne
-	@JoinColumn(name = "test_id")
-	//@Column(name = "MedicalTests_id")
-	private MedicalTest medicalTest;
+	//@NotBlank(message = "test_Id is required")
+//	@OneToOne
+//	@JoinColumn(name = "test_id")
+	@Column(name = "MedicalTests_id")
+	private Long medicalTests_Id;
 	
-	@NotBlank(message = "Date & Time is required")
+	//@NotBlank(message = "Date & Time is required")
 	@Column(name = "date_time")
 	private  LocalDateTime datetime;
 	
@@ -46,7 +50,5 @@ public class Appointment implements Serializable{
 	@Column(name = "appointment_status")
 	private boolean approved;
 	
-	@NotBlank(message = "center Id ")
-	@Column(name = "center_id")
-	private Integer centerId;
+	
 }
