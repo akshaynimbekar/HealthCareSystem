@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cg.hcs.entity.Appointment;
 import com.cg.hcs.entity.DiagnosticCenter;
 import com.cg.hcs.entity.MedicalTest;
 //import com.cg.hcs.entity.Test;
@@ -52,6 +53,14 @@ public class AdminController {
 	public List<DiagnosticCenter> getAllCenters(){		
 		return adminService.getAllCenters();
 	}
+	
+	// To Show All available All Appointment
+		@SecurityRequirement(name = "Bearer Authentication")
+		@PreAuthorize(value = "hasRole('ROLE_ADMIN')")
+		@GetMapping("/availableAppointment")
+		public List<Appointment> getAllAppointment() {
+			return adminService.getAllAppointment();
+		}	
 	
 	//delete center by center_id 
 	@SecurityRequirement(name = "Bearer Authentication")

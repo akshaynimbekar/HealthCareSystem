@@ -5,9 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cg.hcs.entity.Appointment;
 import com.cg.hcs.entity.DiagnosticCenter;
 import com.cg.hcs.entity.MedicalTest;
 import com.cg.hcs.exceptions.ServiceException;
+import com.cg.hcs.repository.AppointmentRepository;
 import com.cg.hcs.repository.DiagnosticCenterRepository;
 import com.cg.hcs.repository.TestRepository;
 import com.cg.hcs.service.AdminService;
@@ -24,8 +26,8 @@ public class AdminServiceImpl implements AdminService {
 	@Autowired
 	TestRepository testRepository;
 
-//	@Autowired
-//	AppointmentRepository appointmentRepository;
+	@Autowired
+	AppointmentRepository appointmentRepository;
 
 	@Override
 	public String addCenter(DiagnosticCenter center) {
@@ -36,6 +38,12 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public List<DiagnosticCenter> getAllCenters() {
 		return diagnosticCenterRespository.findAll();
+	}
+	
+	@Override
+	public List<Appointment> getAllAppointment(){
+		 return appointmentRepository.findAll();
+		 
 	}
 
 	public boolean removeCenter(Long center_id) {

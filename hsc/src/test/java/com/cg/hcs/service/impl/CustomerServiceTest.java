@@ -25,26 +25,26 @@ public class CustomerServiceTest {
 	@InjectMocks
 	CustomerServiceImpl customerServiceImpl;
 	
-//	@Test
-//	@DisplayName("Make Appointment")
-//	void makeAppointment() throws ServiceException {
-//		Appointment appointment= createAppointmentMockData();
-//		when(appointmentRepository.save(appointment)).thenReturn(appointment);
-//		String response=customerServiceImpl.makeAppointment(appointment);
-//		assertEquals(response,"Appointment made");
-//		
-//	}
+	@Test
+	@DisplayName("Make Appointment")
+	void makeAppointment() throws ServiceException {
+		Appointment appointment= createAppointmentMockData();
+		when(appointmentRepository.save(appointment)).thenReturn(appointment);
+		String response=customerServiceImpl.makeAppointment(appointment);
+		assertEquals(response,"Appointment Made");
+		
+	}
 
-//	private Appointment createAppointmentMockData() {
-//		// TODO Auto-generated method stub
-//		Appointment appointment=new Appointment();
-//		appointment.setAppointmentId(101);
-//		appointment.setApproved(false);
-//		appointment.setCenterId(12);
-//		appointment.setDatetime(null);
-//		appointment.setMedicalTest(null);
-//		appointment.setRoles(null);
-//		return null;
-//	}
+	private Appointment createAppointmentMockData() {
+		// TODO Auto-generated method stub
+		Appointment appointment=new Appointment();
+		appointment.setAppointmentId(101);
+		appointment.setApproved(false);
+		appointment.setCenters_Id(12);
+		appointment.setDatetime(null);
+		appointment.setMedicalTests_Id(null);
+		appointment.setCustomers_id(1l);
+		return null;
+	}
 
 }
