@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: healthcare-app-deployment
+  labels:
+    app: hcs-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hcs-app
+  template:
+    metadata:
+      labels:
+        app: hcs-app
+    spec:
+      containers:
+      - name: healthcare-app-deployment
+        image: yash2210/healthcaresystem
+        ports:
+        - containerPort: 9090
