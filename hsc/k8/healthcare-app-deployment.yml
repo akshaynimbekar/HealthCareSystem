@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: healthcare-app-deployment
-        image: yash2210/healthcaresystem
+        image: yash2210/healthcaresystem:0.3
         ports:
         - containerPort: 9090
