@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hcs-app # Sets service name
+  labels:
+    app: hcs-app # Labels and Selectors
+spec:
+  type: LoadBalancer # Sets service type
+  ports:
+    - port: 9090 # Sets port to run the postgres application
+  selector:
+    app: hcs-app
